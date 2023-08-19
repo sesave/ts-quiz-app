@@ -4,7 +4,7 @@ import { MockQuizes } from "src/app/Home/page";
 
 function QuizCard({ title, link, description }: MockQuizes) {
   return (
-    <div className="w-4/12">
+    <div className="w-full lg:w-4/12 xl:w-4/12">
       <div className="mx-auto max-w-xl py-2 px-2 h-full">
         <div className="relative h-full isolate overflow-hidden bg-gray-900 px-6 shadow-2xl sm:rounded-3xl">
           <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left py-8 ">
