@@ -1,5 +1,7 @@
 import React from "react";
+import Hero from "src/components/Hero/Hero";
 import QuizCard from "src/components/QuizCard/QuizCard";
+import styles from './home.module.css'
 
 export type MockQuizes = {
   title: string;
@@ -28,18 +30,19 @@ function Home() {
   ];
   return (
     <div className="home">
-      <div className="intro-box">
-        <div className="intro-texts">
-          <h1 className="intro-title">English Vocabulary Quizzes</h1>
-          <p className="intro-description">Choose the quiz you want to solve</p>
-        </div>
-        <div className="intro-icon">
-          <i className="bi bi-question-circle"></i>
-        </div>
+      <Hero/>
+      <div className={`flex items-stretch ${styles.quizCards__container} flex-col lg:flex-row`}>
+        {mockQuizes.map((quiz: MockQuizes, i: number) => {
+          return (
+            <QuizCard
+              key={i}
+              title={quiz.title}
+              link={quiz.link}
+              description={quiz.description}
+            />
+          );
+        })}
       </div>
-      <div className="flex items-stretch">{mockQuizes.map((quiz: MockQuizes, i: number) => {
-        return <QuizCard key={i} title={quiz.title} link={quiz.link} description={quiz.description}/>;
-      })}</div>
     </div>
   );
 }
